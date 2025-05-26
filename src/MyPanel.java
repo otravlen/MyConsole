@@ -15,19 +15,39 @@ public class MyPanel extends JPanel {
     private int y = 0;
     private int width = 100;
     private int height = 100;
+    private int step = 30;
     private int delta = 10;
 
     private ArrayList<Rectangle> outlist = new ArrayList<>();
 
     public void setSymbols(String param)
     {
-        segment(1);
-        segment(2);
-        segment(3);
-        segment(4);
-        segment(5);
-        segment(6);
-        segment(7);
+        String[] arr = param.replace(",", "").split(" ");
+        for(String cifra:arr)
+        {
+            switch (cifra)
+            {
+                case "1":
+                    segment(2);
+                    segment(4);
+                    break;
+                case "2":
+                    segment(1);
+                    segment(2);
+                    segment(3);
+                    segment(6);
+                    segment(5);
+                    break;
+                case "3":
+                    segment(1);
+                    segment(2);
+                    segment(3);
+                    segment(4);
+                    segment(5);
+                    break;
+            }
+            x = x + step + width;
+        }
     }
 
     private void segment(int number) {
